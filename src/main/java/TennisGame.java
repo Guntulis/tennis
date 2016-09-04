@@ -1,5 +1,5 @@
 import entity.TennisPlayer;
-import service.TennisScoreCountingService;
+import service.TennisScoreTranslationService;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class TennisGame {
     public static void main(String[] args) {
         System.out.println("Tennis game.");
         Scanner keyboard = new Scanner(System.in);
-        TennisScoreCountingService service = new TennisScoreCountingService();
+        TennisScoreTranslationService service = new TennisScoreTranslationService();
         TennisPlayer playerA = new TennisPlayer();
         TennisPlayer playerB = new TennisPlayer();
         String explanationText = "Type 'A' if player A won set, type 'B' won set. (type 'quit' to exit):";
@@ -27,9 +27,11 @@ public class TennisGame {
                 } else {
                     System.out.println(explanationText);
                 }
-                String currentScore = service.currentScore(playerA.getScore(), playerB.getScore());
-                System.out.println("Current score: " + currentScore);
-                if (currentScore.contains("game")) {
+                String currentScore = service.translatedScore(playerA.getScore(), playerB.getScore());
+                if (!exit) {
+                    System.out.println("Current score: " + currentScore);
+                }
+                if (currentScore.contains(TennisScoreTranslationService.GAME)) {
                     exit = true;
                 }
                 if (playerA.getScore() == 5 && playerB.getScore() == 5) {

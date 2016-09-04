@@ -1,6 +1,6 @@
 ## Simple tennis game ##
 
-Simple command line app that calculates current score of tennis game by this table:
+Simple java command line app that calculates current score of tennis game by this table:
 
 | A | B | Score           |
 |---|:-:| ---------------:|
