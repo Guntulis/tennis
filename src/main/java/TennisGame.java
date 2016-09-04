@@ -17,7 +17,7 @@ public class TennisGame {
         while (!exit) {
             String input = keyboard.nextLine();
             if (input != null) {
-                if ("quit".equals(input)) {
+                if ("quit".equalsIgnoreCase(input)) {
                     System.out.println("Exit game.");
                     exit = true;
                 } else if ("a".equalsIgnoreCase(input)) {
